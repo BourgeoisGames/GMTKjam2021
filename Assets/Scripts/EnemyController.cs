@@ -25,6 +25,9 @@ public class EnemyController : MonoBehaviour
 
 	public EnemyAnimation enemy_animation;
 
+    public AudioSource oneShotSource;
+    public AudioClip attackPlayerClip;
+
     public Transform enemy_transform
     {
         get { return transform; }
@@ -134,6 +137,7 @@ public class EnemyController : MonoBehaviour
     {
     	handle_attack_cooldown();
     	target.player_health.take_damage(attack_damage);
+        oneShotSource.PlayOneShot(attackPlayerClip);
     }
 
 
