@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public float score_per_second = 1.0f;
 	
-	public float max_camera_angle = 90f;
+	public float max_camera_angle =85f;
 	
 	public float mouse_sensitivity = 1f;
 	private float mouse_sensitivity_x = 1f;
