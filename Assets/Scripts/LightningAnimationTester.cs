@@ -14,7 +14,7 @@ public class LightningAnimationTester : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            timer += 0.2f;
+            timer += 1110.2f;
 
             pt1.transform.position = Random.insideUnitSphere * 5.0f;
             pt2.transform.position = Random.insideUnitSphere * 5.0f;
