@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pathfinding : MonoBehaviour
 {
 
-	public GameObject target;
+	public PlayerController target;
 
 
     // Start is called before the first frame update
