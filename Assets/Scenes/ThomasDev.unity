@@ -140,6 +140,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a922d423313767a4c86b29cd640fdb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+--- !u!114 &65892939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65892937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c5d358d4939124f86d0750010e218a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maximumHealth: 5
+  gameOver: {fileID: 0}
 --- !u!1 &294657711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,5 +1142,9 @@ PrefabInstance:
       propertyPath: lightning
       value: 
       objectReference: {fileID: 65892938}
+    - target: {fileID: 1849572794828173413, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
+      propertyPath: player_health
+      value: 
+      objectReference: {fileID: 65892939}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}

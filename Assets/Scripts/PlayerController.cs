@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 	public LightningController lightning;
 	public Camera camera;
+	public PlayerHealth player_health;
 	public float move_speed = 1f;
 	public float camera_height = 1.8f;
 	public Rigidbody rigidbody;
