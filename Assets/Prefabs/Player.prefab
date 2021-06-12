@@ -65,7 +65,7 @@ GameObject:
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: PlayerCharacter
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
   camera: {fileID: 1849572795475979857}
   player_health: {fileID: 1668224105}
   player_score: {fileID: 9138915353464193909}
-  move_speed: 9
+  move_speed: 10
   camera_height: 1.8
   rigidbody: {fileID: 1849572794828173412}
   primary_fire: mouse 0

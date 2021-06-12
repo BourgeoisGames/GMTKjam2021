@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706917560863026354, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3267518407863716811, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
@@ -535,7 +535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1078641879903590780, guid: 899c7fecf1ddff644aba53649d5fbfb0, type: 3}
       propertyPath: firstSpawnTime
-      value: 10
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1078641879903590780, guid: 899c7fecf1ddff644aba53649d5fbfb0, type: 3}
       propertyPath: playerController
@@ -850,7 +850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706917560863026354, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3267518407863716811, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
@@ -932,7 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706917560863026354, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3267518407863716811, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
@@ -1178,7 +1178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706917560863026354, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3267518407863716811, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
@@ -1342,7 +1342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706917560863026354, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3267518407863716811, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
@@ -1691,7 +1691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706917560863026354, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3267518407863716811, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
@@ -1715,6 +1715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 372200478398416962, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: eb4d71a47d5164445b8983242283dcac, type: 2}
     - target: {fileID: 1108730628895306506, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_Text
       value: "GAME OVER\n\n...restarting in...   \n\n"
@@ -1793,7 +1797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849572794828173413, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: move_speed
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1849572794828173413, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: lightning_range
@@ -2233,7 +2237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706917560863026354, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3267518407863716811, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
@@ -2315,7 +2319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706917560863026354, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3267518407863716811, guid: 65e3f11088ffe0247b854972e29deb84, type: 3}
