@@ -147,6 +147,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: enemy_health
+      value: 
+      objectReference: {fileID: 452588437}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: attack_damage
       value: 0.5
       objectReference: {fileID: 0}
@@ -156,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827702, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827702, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: m_TagString
@@ -216,6 +220,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+--- !u!114 &452588437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8709033686534827710, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+  m_PrefabInstance: {fileID: 220498769}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fae683c264e4044994509767aff8ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &591356291
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,8 +405,23 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1849572795475979856, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.964
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
+--- !u!114 &1200470602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8709033686534827710, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+  m_PrefabInstance: {fileID: 8709033685369492724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fae683c264e4044994509767aff8ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1306541376
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,20 +615,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1849572794828173414, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
   m_PrefabInstance: {fileID: 808010046}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1668224102
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668224101}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1668224103 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1849572794828173413, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
@@ -626,6 +642,20 @@ MonoBehaviour:
   lightning_animation_prefab: {fileID: 4387562356167719745, guid: 9fe579ebc5f9d4146a7652f1a286a3d8, type: 3}
   damage_over_time: 2
   max_lightning_range: 100000000
+--- !u!136 &1668224108
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668224101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8709033685369492724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -650,6 +680,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: enemy_health
+      value: 
+      objectReference: {fileID: 1200470602}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: attack_damage
       value: 0.5
       objectReference: {fileID: 0}
@@ -659,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827702, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827702, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: m_TagString

@@ -19,7 +19,7 @@ public class LightningController : MonoBehaviour
 	private string enemy_tag = "Enemy";
 	private string wall_tag = "Wall";
 
-	//private float raycast_ignore_distance;
+	private float raycast_ignore_distance = 0.01f;
 
 	private List<LightningEndpoint> _lighting_points;
 	
@@ -94,8 +94,9 @@ public class LightningController : MonoBehaviour
 		}
 
 		RaycastHit[] hit_list = Physics.RaycastAll(point_a, direction, distance);
+		RaycastHit[] hit_list_b_to_a = Physics.RaycastAll(point_b, -direction, distance);
 
-		if(has_invalid_lightning_hits(hit_list, point_a, point_b)){
+		if(has_invalid_lightning_hits(hit_list, point_a, point_b) || has_invalid_lightning_hits(hit_list_b_to_a, point_b, point_a)){
 			handle_invalid_lightning();
 		}
 		handle_lightning_damage_list(hit_list);
@@ -122,7 +123,9 @@ public class LightningController : MonoBehaviour
 				Debug.Log(hit_normal);
 				Debug.Log(to_point);
 
-				if(!(Vector3.Angle(to_point,hit_normal) <= 90.0f)){//if we are colliding with the end wall/surface
+				float min_dis = Vector3.Distance(nearest_point, hit.point);
+
+				if(!(Vector3.Angle(to_point,hit_normal) <= 90.0f && min_dis < raycast_ignore_distance)){//if we are colliding with the end wall/surface
 					return true;
 				}
 			}
@@ -146,7 +149,7 @@ public class LightningController : MonoBehaviour
 	void handle_invalid_lightning()
 	{
 		end_lightning_effect();
-		Debug.Log("Lightning endpoints are invalid");
+		Debug.Log("Lightning endpoints are invalid" + Time.time.ToString());
 	}
 
 	void handle_player_hit(GameObject obj)
