@@ -168,7 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 7808244992323770720}
-  restartTime: 2
+  gameOverTimerText: {fileID: 7808244992323770721}
+  restartTime: 3
 --- !u!114 &265504857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,3 +602,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4595191261017350152, guid: 6a86c104e5722044eadea7b9c1866fa3, type: 3}
   m_PrefabInstance: {fileID: 7808244992323770719}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7808244992323770721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2394571205954429607, guid: 6a86c104e5722044eadea7b9c1866fa3, type: 3}
+  m_PrefabInstance: {fileID: 7808244992323770719}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

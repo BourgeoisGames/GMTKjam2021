@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
     // Screen to display on the UI
     public GameObject gameOverScreen;
+    // Text to update with time remaining
+    public Text gameOverTimerText;
     // Time before restarting the game
-    public float restartTime = 2.0f;
+    public float restartTime = 3.0f;
 
     // Timer for the restart
     private float restartTimer;
@@ -29,6 +32,11 @@ public class GameOver : MonoBehaviour
         {
             // Add the REAL delta time
             restartTimer += Time.unscaledDeltaTime;
+
+            // Update the timer on the screen with the rounded-up restart time
+            int remainingTime = Mathf.CeilToInt(restartTime - restartTimer);
+            gameOverTimerText.text = remainingTime.ToString();
+
             if (restartTimer >= restartTime)
             {
                 // Yeahhhhh ... this is, like, the one thing that won't get reset otherwise
