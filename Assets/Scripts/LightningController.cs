@@ -12,6 +12,8 @@ public class LightningController : MonoBehaviour
     public AudioSource lightningSource;
     public AudioClip placePylon, placeLightning;
 
+    public AudioSource zapSource;
+
 	private LightningAnimation _active_animation;
 
 	public float damage_over_time = 2;
@@ -174,10 +176,10 @@ public class LightningController : MonoBehaviour
 		foreach (RaycastHit hit in hit_list) {
 			GameObject obj = hit.collider.gameObject;
 			if(obj.tag == player_tag){
-				handle_player_hit(obj);
+				handle_player_hit(obj, hit.point);
 			}
 			else if(obj.tag == enemy_tag){
-				handle_enemy_hit(obj);
+				handle_enemy_hit(obj, hit.point);
 			}
 		}
 	}
@@ -188,15 +190,25 @@ public class LightningController : MonoBehaviour
 		Debug.Log("Lightning endpoints are invalid" + Time.time.ToString());
 	}
 
-	void handle_player_hit(GameObject obj)
+	void handle_player_hit(GameObject obj, Vector3 point)
 	{
 		obj.GetComponent<PlayerController>().player_health.take_damage(get_damage_amount());
+        play_damage_sound(point);
 	}
 
-	void handle_enemy_hit(GameObject obj)
+	void handle_enemy_hit(GameObject obj, Vector3 point)
 	{
 		obj.GetComponent<EnemyController>().enemy_health.take_damage(get_damage_amount());
-	}
+        play_damage_sound(point);
+    }
+
+    void play_damage_sound(Vector3 point)
+    {
+        if (zapSource.isPlaying)
+            return;
+        zapSource.transform.position = point;
+        zapSource.Play();
+    }
 
 	float get_damage_amount()
 	{
