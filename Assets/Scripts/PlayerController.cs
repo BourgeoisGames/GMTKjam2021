@@ -87,8 +87,8 @@ public class PlayerController : MonoBehaviour
 	
 	private void roated_camera() 
 	{
-		float x = mouse_sensitivity * mouse_sensitivity_x * Input.GetAxis("Mouse X") * Time.deltaTime;
-		float y = mouse_sensitivity * mouse_sensitivity_y * Input.GetAxis("Mouse Y") * Time.deltaTime;
+		float x = mouse_sensitivity * mouse_sensitivity_x * Input.GetAxis("Mouse X");
+		float y = mouse_sensitivity * mouse_sensitivity_y * Input.GetAxis("Mouse Y");
 		if (invert_y_axis) {
 			y *= -1;
 		}

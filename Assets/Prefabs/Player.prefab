@@ -218,7 +218,7 @@ MonoBehaviour:
   lightning_range: 50
   score_per_second: 1
   max_camera_angle: 85
-  mouse_sensitivity: 450
+  mouse_sensitivity: 1
 --- !u!114 &1668224105
 MonoBehaviour:
   m_ObjectHideFlags: 0
