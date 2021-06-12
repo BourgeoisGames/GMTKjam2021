@@ -103,14 +103,14 @@ MonoBehaviour:
   camera: {fileID: 1849572795475979857}
   player_health: {fileID: 1668224105}
   player_score: {fileID: 9138915353464193909}
-  move_speed: 10
+  move_speed: 9
   camera_height: 1.8
   rigidbody: {fileID: 1849572794828173412}
   primary_fire: mouse 0
   lightning_range: 50
   score_per_second: 1
   max_camera_angle: 90
-  mouse_sensitivity: 25
+  mouse_sensitivity: 18
 --- !u!114 &1668224105
 MonoBehaviour:
   m_ObjectHideFlags: 0
