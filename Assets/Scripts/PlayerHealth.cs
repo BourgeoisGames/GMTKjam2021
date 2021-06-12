@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float maximumHealth = 1.0f; // Maximum health
+    // Maximum health
+    public float maximumHealth = 5.0f;
+    // Game over script
+    public GameOver gameOver;
 
     private float currentHealth;
 
@@ -13,12 +16,13 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maximumHealth;
     }
 
-    void take_damage(float damage)
+    public void take_damage(float damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            gameOver.game_over();
         }
     }
 }
