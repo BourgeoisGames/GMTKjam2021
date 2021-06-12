@@ -25,6 +25,11 @@ public class EnemyController : MonoBehaviour
 
 	public EnemyAnimation enemy_animation;
 
+    public Transform enemy_transform
+    {
+        get { return transform; }
+    }
+
 
     // Start is called before the first frame update
     void Start()

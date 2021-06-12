@@ -9,7 +9,11 @@ public class EnemyHealth : MonoBehaviour
     public float kill_score;
 	private float health;
 
+    public EnemyController controller;
+
     public PlayerScore scorekeeper;
+
+    public GameObject deathPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +53,7 @@ public class EnemyHealth : MonoBehaviour
 
     void die()
     {
+        Instantiate(deathPrefab, controller.enemy_transform.position, controller.enemy_transform.rotation);
         scorekeeper.add_score(kill_score);
         Destroy(gameObject);
     }

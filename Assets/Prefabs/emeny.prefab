@@ -183,7 +183,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_health: 5
   kill_score: 100
+  controller: {fileID: 8709033686534827697}
   scorekeeper: {fileID: 0}
+  deathPrefab: {fileID: 209126815501484185, guid: 13d77d786597fca47bde72bf6532e27c, type: 3}
 --- !u!1001 &38646668
 PrefabInstance:
   m_ObjectHideFlags: 0
