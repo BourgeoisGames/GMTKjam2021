@@ -154,9 +154,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 982166654}
-  move_speed: 100
+  move_speed: 10
   camera_height: 1.8
-  mouse_sensitivity: 100
+  rigidbody: {fileID: 65892939}
+  max_camera_degrees: 0
+  min_camera_degrees: 0
+  mouse_sensitivity: 25
 --- !u!54 &65892939
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -586,13 +589,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982166652}
-  m_LocalRotation: {x: 0.08682413, y: 0.08682413, z: -0.0075961305, w: 0.99240386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 10, y: 10, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1019582313
 GameObject:
   m_ObjectHideFlags: 0
