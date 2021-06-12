@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    // Player controller
+    public PlayerController playerController;
     // Interval before the first wave spawns
     public float firstSpawnTime = 3.0f;
     // Interval between enemy waves spawning
@@ -35,7 +37,16 @@ public class EnemySpawner : MonoBehaviour
             // Spawn the next wave of enemies
             for (int i = 0; i < enemiesPerWave; i++)
             {
-                Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+                GameObject enemySpawned = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity);
+                EnemyController enemyController = enemySpawned.GetComponent<EnemyController>();
+                if (enemyController == null)
+                {
+                    Debug.LogError("THE ENEMY PREFAB HAS NO CONTROLLER SCRIPT -- YOU SUCK ASS");
+                }
+                else
+                {
+                    enemyController.set_target(playerController);
+                }
             }
 
             spawnTimer += enemySpawnTime;
