@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
 	public float attack_damage;
 	public float attack_range;
 
-	public GameObject target;
+	public PlayerController target;
 
 
     // Start is called before the first frame update
@@ -27,9 +27,10 @@ public class EnemyController : MonoBehaviour
   		pathfinding.target = target;
     }
 
-    public void set_target(GameObject targ)
+    public void set_target(PlayerController targ)
     {
     	target = targ;
+    	pathfinding.target = targ;
     }
 
     // Update is called once per frame
@@ -88,7 +89,7 @@ public class EnemyController : MonoBehaviour
 
     bool attack_position_is_valid()
     {
-    	return false;//if()
+    	return Vector3.Distance(target.transform.position, transform.position) <= attack_range;
     }
 
     void do_attack()
