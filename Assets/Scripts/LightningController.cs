@@ -43,10 +43,11 @@ public class LightningController : MonoBehaviour
 		}
 
 		Vector3 target = target_hit.point;
+        Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, target_hit.normal);
 		if (_lighting_points.Count >= 2) {
 			remove_old_ball();
 		}
-		spawn_ball(target);
+		spawn_ball(target, targetRotation);
 		if (_lighting_points.Count == 2) {
 			start_lightning_effect();
 		}
@@ -65,7 +66,7 @@ public class LightningController : MonoBehaviour
 	
 	private void start_lightning_effect() {
 		_lightning_is_active = true;
-		handle_lightning_animation(_lighting_points[0].endpoint_transform.position, _lighting_points[1].endpoint_transform.position);
+		handle_lightning_animation(_lighting_points[0].get_lightning_position(), _lighting_points[1].get_lightning_position());
 	}
 
 	private void end_lightning_effect() {
@@ -83,9 +84,10 @@ public class LightningController : MonoBehaviour
 		end_lightning_effect();
 	}
 	
-	private void spawn_ball(Vector3 target) {
+	private void spawn_ball(Vector3 target, Quaternion targetRotation) {
 		GameObject new_ball = Instantiate(prefab) as GameObject;
 		new_ball.transform.position = target;
+        new_ball.transform.rotation = targetRotation;
 		_lighting_points.Add(getLightningBallComponent(new_ball));
 	}
 	
