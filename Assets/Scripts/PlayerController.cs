@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	public LightningController lightning;
 	public Camera camera;
 	public float move_speed = 1f;
 	public float camera_height = 1.8f;
 	public Rigidbody rigidbody;
+	public string primary_fire = "mouse 0";
+	public int lightning_range = 50;
 	
 	public float max_camera_angle = 90f;
 	
@@ -16,6 +19,19 @@ public class PlayerController : MonoBehaviour
 	private float mouse_sensitivity_y = 1f;
 	
 	private bool invert_y_axis = true;
+	
+	private static PlayerController _instance;
+	public static PlayerController instance {
+		get { return _instance; }
+	}
+	
+	public Transform player_transform {
+		get { return transform; }
+	}
+	
+	void Awake() {
+		_instance = this;
+	}
 	
     // Start is called before the first frame update
     void Start()
@@ -29,8 +45,29 @@ public class PlayerController : MonoBehaviour
     void Update() 
 	{
 		roated_camera();
+		activate_lightning();
     }
 	
+	private void activate_lightning() {
+		/** check if player is inputting to activate, and activate it if needed.*/
+		if (Input.GetKeyDown(primary_fire)) {
+			Vector3 target = get_point_looked_at();
+			if (target.z != -111) {
+				lightning.activate(target);
+			}
+		}
+	}
+	
+	private Vector3 get_point_looked_at() {
+		// TODO --- add raycast layers here; should filter out enemies, if possible.
+		int layerMask = Physics.DefaultRaycastLayers;
+		RaycastHit hit;
+		if(Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, lightning_range)) {
+			return hit.point;
+//			return new Vector3(0, 0, 0);
+		}
+		return new Vector3(0, 0, -111);
+	}
 	
 	void FixedUpdate() 
 	{
@@ -67,8 +104,9 @@ public class PlayerController : MonoBehaviour
 		float move_forward = Input.GetAxis("Vertical");
 		float move_right = Input.GetAxis("Horizontal");
 		
-		Vector3 v_forward = move_speed * move_forward * camera.transform.forward;
-		Vector3 v_right = move_speed * move_right * camera.transform.right;
+		Vector3 v_forward = move_speed * move_forward * Vector3.ProjectOnPlane(camera.transform.forward, Vector3.up).normalized;
+		Vector3 v_right = move_speed * move_right * Vector3.ProjectOnPlane(camera.transform.right, Vector3.up).normalized;
+//		Vector3 v_right = move_speed * move_right * camera.transform.right;
 		
         Vector3 move = v_forward + v_right;
         //Vector3 move = new Vector3(move_forward, 0, move_right);
