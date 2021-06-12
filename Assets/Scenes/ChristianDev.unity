@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779b4156324e67a43841aab0c1bf7b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 7808244992323770720}
+  restartTime: 2
 --- !u!114 &265504857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,3 +596,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a86c104e5722044eadea7b9c1866fa3, type: 3}
+--- !u!1 &7808244992323770720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4595191261017350152, guid: 6a86c104e5722044eadea7b9c1866fa3, type: 3}
+  m_PrefabInstance: {fileID: 7808244992323770719}
+  m_PrefabAsset: {fileID: 0}
