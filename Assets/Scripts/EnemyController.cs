@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
 
 	public PlayerController target;
 
+	public EnemyHealth enemy_health;
+
 
     // Start is called before the first frame update
     void Start()
