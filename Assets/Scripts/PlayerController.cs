@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	public float camera_height = 1.8f;
 	public Rigidbody rigidbody;
 	public string primary_fire = "mouse 0";
+	public string reset_nodes = "r";
 	public long lightning_range = 3;
 
     public float score_per_second = 1.0f;
@@ -64,6 +65,10 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetKeyDown(primary_fire)) {
 			get_point_looked_at();
 		}
+		
+		if (Input.GetKeyDown(reset_nodes)) {
+			lightning.reset_balls();
+		}
 	}
 	
 	private void get_point_looked_at() {
@@ -82,8 +87,8 @@ public class PlayerController : MonoBehaviour
 	
 	private void roated_camera() 
 	{
-		float x = mouse_sensitivity * mouse_sensitivity_x * Input.GetAxis("Mouse X");
-		float y = mouse_sensitivity * mouse_sensitivity_y * Input.GetAxis("Mouse Y");
+		float x = mouse_sensitivity * mouse_sensitivity_x * Input.GetAxis("Mouse X") * Time.deltaTime;
+		float y = mouse_sensitivity * mouse_sensitivity_y * Input.GetAxis("Mouse Y") * Time.deltaTime;
 		if (invert_y_axis) {
 			y *= -1;
 		}
