@@ -8,8 +8,8 @@ public class LightningMeshGeneration : MonoBehaviour
 
     // Radius of the lightning bolt
     public float boltRadius = 0.05f;
-    // Number of triangular tube control points in the middle of the beam
-    public int midsteps = 4;
+    // Number of triangular tube control points in the middle of the beam per meter
+    public float midstepsPerMeter = 1.0f;
 
     // Amplitude of noise
     public float noiseAmplitude = 0.4f;
@@ -23,6 +23,7 @@ public class LightningMeshGeneration : MonoBehaviour
     private Mesh lightningMesh;
 
     private Vector3 startPos, endPos;
+    private int midsteps;
 
     private float noiseTimer;
 
@@ -34,12 +35,68 @@ public class LightningMeshGeneration : MonoBehaviour
         lightning.transform.rotation = Quaternion.identity;
         lightning.transform.localScale = Vector3.one;
 
-        lightningMesh = new Mesh();
-        lightning.mesh = lightningMesh;
+        if (lightningMesh == null)
+        {
+            lightningMesh = new Mesh();
+            lightning.mesh = lightningMesh;
 
-        GenerateMeshVertices();
+            midsteps = 1;
 
-        // The triangles stay constant, so we can just do that part once here
+            GenerateMeshVertices();
+            GenerateMeshTriangles();
+        }
+    }
+
+    private void GenerateMeshVertices()
+    {
+        // Come up with a lightning bolt between the points!
+        Vector3[] meshVertices = new Vector3[2 + 3 * midsteps];
+
+        if (startPos == endPos)
+        {
+            for (int i = 0; i < meshVertices.Length; i++)
+                meshVertices[i] = startPos;
+
+            lightningMesh.vertices = meshVertices;
+            return;
+        }
+
+        // Find offsets in the shape of a triangle ... using MATH! HAHAHAHA
+        Vector3 y = Vector3.ProjectOnPlane(Vector3.up, endPos - startPos);
+        if (y.magnitude < 0.01f)
+            y = Vector3.ProjectOnPlane(Vector3.forward, endPos - startPos);
+        y = y.normalized;
+        Vector3 x = Vector3.Cross(endPos - startPos, y).normalized;
+
+        Vector3 offset1 = boltRadius * y;
+        Vector3 offset2 = -0.5f * boltRadius * y + 0.866f * boltRadius * x; // 0.866 is sqrt(3)/2, this is for triangles
+        Vector3 offset3 = -0.5f * boltRadius * y - 0.866f * boltRadius * x;
+
+        meshVertices[0] = startPos;
+        meshVertices[meshVertices.Length - 1] = endPos;
+        for (int i = 0; i < midsteps; i++)
+        {
+            int vertexIndex = 1 + 3 * i;
+            Vector3 triangleBasePosition = Vector3.Lerp(startPos, endPos, (1 + i) / (float)(midsteps + 1));
+
+            // Add noise
+            float noiseY = noiseTimer * temporalFreq;
+            float noiseX = i * spatialFreq;
+
+            float addedX = (Mathf.PerlinNoise(noiseX, noiseY) * 2.0f - 1.0f) * noiseAmplitude;
+            float addedY = (Mathf.PerlinNoise(noiseX + 10000.0f, noiseY) * 2.0f - 1.0f) * noiseAmplitude;
+            Vector3 noiseAddition = addedX * x + addedY * y;
+
+            meshVertices[vertexIndex] = triangleBasePosition + noiseAddition + offset1;
+            meshVertices[vertexIndex + 1] = triangleBasePosition + noiseAddition + offset2;
+            meshVertices[vertexIndex + 2] = triangleBasePosition + noiseAddition + offset3;
+        }
+
+        lightningMesh.vertices = meshVertices;
+    }
+
+    private void GenerateMeshTriangles()
+    {
         int[] meshTriangles = new int[18 * midsteps];
 
         // This is nasty ... just trust me, this is how the lightning bolt geometry works
@@ -94,54 +151,6 @@ public class LightningMeshGeneration : MonoBehaviour
         lightningMesh.RecalculateBounds();
     }
 
-    private void GenerateMeshVertices()
-    {
-        // Come up with a lightning bolt between the points!
-        Vector3[] meshVertices = new Vector3[2 + 3 * midsteps];
-
-        if (startPos == endPos)
-        {
-            for (int i = 0; i < meshVertices.Length; i++)
-                meshVertices[i] = startPos;
-
-            lightningMesh.vertices = meshVertices;
-            return;
-        }
-
-        // Find offsets in the shape of a triangle ... using MATH! HAHAHAHA
-        Vector3 y = Vector3.ProjectOnPlane(Vector3.up, endPos - startPos);
-        if (y.magnitude < 0.01f)
-            y = Vector3.ProjectOnPlane(Vector3.forward, endPos - startPos);
-        y = y.normalized;
-        Vector3 x = Vector3.Cross(endPos - startPos, y).normalized;
-
-        Vector3 offset1 = boltRadius * y;
-        Vector3 offset2 = -0.5f * boltRadius * y + 0.866f * boltRadius * x; // 0.866 is sqrt(3)/2, this is for triangles
-        Vector3 offset3 = -0.5f * boltRadius * y - 0.866f * boltRadius * x;
-
-        meshVertices[0] = startPos;
-        meshVertices[meshVertices.Length - 1] = endPos;
-        for (int i = 0; i < midsteps; i++)
-        {
-            int vertexIndex = 1 + 3 * i;
-            Vector3 triangleBasePosition = Vector3.Lerp(startPos, endPos, (1 + i) / (float)(midsteps + 1));
-
-            // Add noise
-            float noiseY = noiseTimer * temporalFreq;
-            float noiseX = i * spatialFreq;
-
-            float addedX = (Mathf.PerlinNoise(noiseX, noiseY) * 2.0f - 1.0f) * noiseAmplitude;
-            float addedY = (Mathf.PerlinNoise(noiseX + 10000.0f, noiseY) * 2.0f - 1.0f) * noiseAmplitude;
-            Vector3 noiseAddition = addedX * x + addedY * y;
-
-            meshVertices[vertexIndex] = triangleBasePosition + noiseAddition + offset1;
-            meshVertices[vertexIndex + 1] = triangleBasePosition + noiseAddition + offset2;
-            meshVertices[vertexIndex + 2] = triangleBasePosition + noiseAddition + offset3;
-        }
-
-        lightningMesh.vertices = meshVertices;
-    }
-
     private void Update()
     {
         noiseTimer += Time.deltaTime;
@@ -154,7 +163,15 @@ public class LightningMeshGeneration : MonoBehaviour
 
     public void set_points(Vector3 start, Vector3 end)
     {
+        lightningMesh = new Mesh();
+        lightning.mesh = lightningMesh;
+
         startPos = start;
         endPos = end;
+
+        midsteps = Mathf.CeilToInt((end - start).magnitude * midstepsPerMeter);
+
+        GenerateMeshVertices();
+        GenerateMeshTriangles();
     }
 }
