@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pathfinding : MonoBehaviour
 {
 
-	public Transform target;
+	public PlayerController target;
 
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class Pathfinding : MonoBehaviour
 
     public Vector3 get_direction()
     {
-    	Vector3 direction = target.position - transform.position;
+    	Vector3 direction = target.transform.position - transform.position;
         return direction;
     }
 

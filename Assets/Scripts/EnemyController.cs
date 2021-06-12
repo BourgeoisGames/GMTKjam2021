@@ -9,17 +9,47 @@ public class EnemyController : MonoBehaviour
 	public Rigidbody body;
 	public Pathfinding pathfinding;
 
+	public float attack_speed;
+	private float attack_timer;
+	private bool can_attack;
+
+	public float attack_damage;
+	public float attack_range;
+
+	public PlayerController target;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        can_attack = true;
+  		attack_timer = 0.0f;
+  		pathfinding.target = target;
+    }
+
+    public void set_target(PlayerController targ)
+    {
+    	target = targ;
+    	pathfinding.target = targ;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        handle_attack();
+    }
+
+    void update_attack_availability()
+    {
+    	if(attack_timer < Time.time){
+    		can_attack = true;
+    	}
+    }
+
+    void handle_attack_cooldown()
+    {
+    	can_attack = false;
+    	attack_timer = Time.time + attack_speed;
     }
 
     void FixedUpdate()
@@ -43,5 +73,29 @@ public class EnemyController : MonoBehaviour
 
     	return to_move;
     }
+
+    void handle_attack()
+    {
+    	update_attack_availability();
+    	if(! can_attack){
+    		return;
+    	}
+
+    	if(attack_position_is_valid()){
+    		handle_attack_cooldown();
+    		do_attack();
+    	}
+    }
+
+    bool attack_position_is_valid()
+    {
+    	return Vector3.Distance(target.transform.position, transform.position) <= attack_range;
+    }
+
+    void do_attack()
+    {
+    	return;
+    }
+
 
 }
