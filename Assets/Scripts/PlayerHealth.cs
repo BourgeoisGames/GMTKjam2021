@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     public float maximumHealth = 5.0f;
     // Game over script
     public GameOver gameOver;
+    // Health UI
+    public HealthUI healthUI;
 
     private float currentHealth;
 
@@ -24,5 +26,10 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 0;
             gameOver.game_over();
         }
+    }
+
+    private void Update()
+    {
+        healthUI.set_health(currentHealth / maximumHealth);
     }
 }
