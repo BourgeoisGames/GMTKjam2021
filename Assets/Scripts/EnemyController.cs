@@ -82,7 +82,6 @@ public class EnemyController : MonoBehaviour
     	}
 
     	if(attack_position_is_valid()){
-    		handle_attack_cooldown();
     		do_attack();
     	}
     }
@@ -94,7 +93,8 @@ public class EnemyController : MonoBehaviour
 
     void do_attack()
     {
-    	return;
+    	handle_attack_cooldown();
+    	target.player_health.take_damage(attack_damage);
     }
 
 
