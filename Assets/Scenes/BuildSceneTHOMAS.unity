@@ -1792,6 +1792,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1849572794828173413, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
+      propertyPath: move_speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849572794828173413, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: lightning_range
       value: 35
       objectReference: {fileID: 0}
