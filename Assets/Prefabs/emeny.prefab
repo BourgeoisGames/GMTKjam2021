@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8709033686534827710}
   m_Layer: 0
   m_Name: emeny
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,13 +112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a5ac5b311c67c4784ffe62dda339e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 1
+  move_speed: 6
   body: {fileID: 8709033686534827703}
   pathfinding: {fileID: 8709033686534827696}
   attack_speed: 2
-  attack_damage: 0.5
+  attack_damage: 10
   attack_range: 2
   target: {fileID: 0}
+  enemy_health: {fileID: 8709033686534827710}
 --- !u!114 &8709033686534827696
 MonoBehaviour:
   m_ObjectHideFlags: 0
