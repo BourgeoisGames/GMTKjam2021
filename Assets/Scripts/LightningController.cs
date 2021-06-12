@@ -44,11 +44,22 @@ public class LightningController : MonoBehaviour
 
 		Vector3 target = target_hit.point;
 		if (_lighting_points.Count >= 2) {
-			reset_balls();
+			remove_old_ball();
 		}
 		spawn_ball(target);
 		if (_lighting_points.Count == 2) {
 			start_lightning_effect();
+		}
+	}
+	
+	private void remove_old_ball() {
+		/* removes and cleans up the oldest lightning ball in the list */
+		if (_active_animation != null) {
+			_active_animation.despawn();
+		}
+		if (_lighting_points.Count != 0) {
+			_lighting_points[0].despawn();
+			_lighting_points.RemoveAt(0);
 		}
 	}
 	
@@ -64,7 +75,7 @@ public class LightningController : MonoBehaviour
 		}
 	}
 	
-	private void reset_balls() {
+	public void reset_balls() {
 		foreach (LightningEndpoint ball in _lighting_points) {
 			ball.despawn();
 		}

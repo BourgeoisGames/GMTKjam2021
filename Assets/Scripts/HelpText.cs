@@ -28,10 +28,14 @@ public class HelpText : MonoBehaviour
 	}
 	
 	private void check_keypresses() {
+		List<string> _pressed = new List<string>();
 		foreach (KeyValuePair<string, bool> entry in keys_pressed) {
 			if (Input.GetKeyDown(entry.Key)) {
-				keys_pressed[entry.Key] = true;
+				_pressed.Add(entry.Key);
 			}
+		}
+		foreach (string key in _pressed) {
+			keys_pressed[key] = true;
 		}
 	}
 
