@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 	private float mouse_sensitivity_y = 1f;
 	
 	private bool invert_y_axis = true;
+
+    private Vector3 mouseEuler;
 	
 	private static PlayerController _instance;
 	public static PlayerController instance {
@@ -37,7 +39,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		update_camera_position();
+        mouseEuler = Vector3.zero;
+        update_camera_position();
 //		camera.transform.rotation = transform.rotation;
     }
 	
@@ -83,12 +86,14 @@ public class PlayerController : MonoBehaviour
 		if (invert_y_axis) {
 			y *= -1;
 		}
-		Vector3 old_angle = camera.transform.eulerAngles;
+		Vector3 old_angle = mouseEuler;
 		
 		float new_x = x + old_angle.y;
 		float new_y = y + old_angle.x;
+        new_y = Mathf.Clamp(new_y, -max_camera_angle, max_camera_angle);
 		
 		Vector3 new_angle = new Vector3(new_y, new_x, 0);
+        mouseEuler = new_angle;
 		camera.transform.rotation = Quaternion.Euler(new_angle);
 //		Vector3 new_rotation = camera.transform.eulerAngles + new Vector3(y, x, 0);
 	}
