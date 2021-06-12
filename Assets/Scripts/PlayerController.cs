@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
     void Update() 
 	{
 		roated_camera();
-		activate_lightning();
+        update_camera_position();
+        activate_lightning();
 
         player_score.add_score(score_per_second * Time.deltaTime);
     }
@@ -82,7 +83,6 @@ public class PlayerController : MonoBehaviour
 	void FixedUpdate() 
 	{
 		move_player();
-		update_camera_position();
 	}
 	
 	private void roated_camera() 
