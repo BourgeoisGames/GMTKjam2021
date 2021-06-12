@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour
     {
         mouseEuler = Vector3.zero;
         update_camera_position();
-//		camera.transform.rotation = transform.rotation;
+        //		camera.transform.rotation = transform.rotation;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 	
 
