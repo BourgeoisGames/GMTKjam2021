@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a922d423313767a4c86b29cd640fdb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 5519647742796259152, guid: b654f13a762c2654d9dd5c3c58f0810f, type: 3}
 --- !u!114 &65892939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximumHealth: 5
   gameOver: {fileID: 0}
+  healthUI: {fileID: 0}
 --- !u!1 &294657711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,15 +1101,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1813342138844253465, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.8492882
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1813342138844253465, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5162935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1813342138844253465, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.0379763
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1813342138844253465, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_LocalRotation.w
