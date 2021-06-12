@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
 
 	public float move_speed;
+	public float speed_variation_range = 0.0f;
 	public Rigidbody body;
 	public Pathfinding pathfinding;
 
@@ -20,6 +21,10 @@ public class EnemyController : MonoBehaviour
 
 	public EnemyHealth enemy_health;
 
+	public PlayerScore scorekeeper;
+
+	public EnemyAnimation enemy_animation;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +32,7 @@ public class EnemyController : MonoBehaviour
         can_attack = true;
   		attack_timer = 0.0f;
   		pathfinding.target = target;
+  		move_speed = move_speed + Random.value*2*speed_variation_range - speed_variation_range;
     }
 
     public void set_target(PlayerController targ)
@@ -35,10 +41,27 @@ public class EnemyController : MonoBehaviour
     	pathfinding.target = targ;
     }
 
+    public void set_scorekeeper(PlayerScore sk)
+    {
+    	scorekeeper = sk;
+    	enemy_health.scorekeeper = sk;
+    }
+
     // Update is called once per frame
     void Update()
     {
         handle_attack();
+        handle_attack_animation();
+    }
+
+    void handle_attack_animation()
+    {
+    	if(attack_position_is_valid()){
+        	enemy_animation.set_attacking(true);
+		}
+		else{
+			enemy_animation.set_attacking(false);
+		}
     }
 
     void update_attack_availability()
@@ -64,6 +87,15 @@ public class EnemyController : MonoBehaviour
     	Vector3 to_move = get_move_amount();
 
     	body.velocity = to_move;
+
+    	handle_rotation(to_move);
+    }
+
+    void handle_rotation(Vector3 to_move)
+    {
+    	if (to_move != Vector3.zero) {
+    		transform.rotation = Quaternion.LookRotation(to_move);
+		}
     }
 
     Vector3 get_move_amount()

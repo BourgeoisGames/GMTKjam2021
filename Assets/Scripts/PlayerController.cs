@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 	public float camera_height = 1.8f;
 	public Rigidbody rigidbody;
 	public string primary_fire = "mouse 0";
-	public int lightning_range = 50;
+	public long lightning_range = 3;
 
     public float score_per_second = 1.0f;
 	
@@ -62,22 +62,17 @@ public class PlayerController : MonoBehaviour
 	private void activate_lightning() {
 		/** check if player is inputting to activate, and activate it if needed.*/
 		if (Input.GetKeyDown(primary_fire)) {
-			Vector3 target = get_point_looked_at();
-			if (target.z != -111) {
-				lightning.activate(target);
-			}
+			get_point_looked_at();
 		}
 	}
 	
-	private Vector3 get_point_looked_at() {
+	private void get_point_looked_at() {
 		// TODO --- add raycast layers here; should filter out enemies, if possible.
 		int layerMask = Physics.DefaultRaycastLayers;
 		RaycastHit hit;
 		if(Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, lightning_range)) {
-			return hit.point;
-//			return new Vector3(0, 0, 0);
+			lightning.activate(hit);
 		}
-		return new Vector3(0, 0, -111);
 	}
 	
 	void FixedUpdate() 
@@ -108,7 +103,7 @@ public class PlayerController : MonoBehaviour
 	
 	private void update_camera_position() 
 	{
-		camera.transform.position = new Vector3(0, camera_height, 0) + transform.position;
+		camera.transform.position = new Vector3(0, camera_height, 0) + rigidbody.transform.position;
 	}
 	
 	private void move_player() 

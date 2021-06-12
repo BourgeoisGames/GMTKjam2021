@@ -6,8 +6,10 @@ public class EnemyHealth : MonoBehaviour
 {
 
 	public float max_health;
+    public float kill_score;
 	private float health;
 
+    public PlayerScore scorekeeper;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,7 @@ public class EnemyHealth : MonoBehaviour
 
     void die()
     {
+        scorekeeper.add_score(kill_score);
         Destroy(gameObject);
     }
 

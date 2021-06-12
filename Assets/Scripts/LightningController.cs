@@ -8,6 +8,7 @@ public class LightningController : MonoBehaviour
 	public GameObject prefab;
 
 	public GameObject lightning_animation_prefab;
+
 	private LightningAnimation _active_animation;
 
 	public float damage_over_time = 2;
@@ -35,7 +36,13 @@ public class LightningController : MonoBehaviour
 		}
 	}
 	
-	public void activate(Vector3 target) {
+	public void activate(RaycastHit target_hit) {
+
+		if(target_hit.collider.gameObject.tag != wall_tag){
+			return; //we've got to hit a wall;
+		}
+
+		Vector3 target = target_hit.point;
 		if (_lighting_points.Count >= 2) {
 			reset_balls();
 		}
