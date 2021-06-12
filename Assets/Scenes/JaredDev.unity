@@ -133,10 +133,34 @@ PrefabInstance:
     - target: {fileID: 8709033686534827696, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: target
+      value: 
       objectReference: {fileID: 1668224103}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: attack_range
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: attack_speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: attack_damage
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827702, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: m_Name
       value: emeny (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827703, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827703, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: m_Constraints
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827709, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: m_RootOrder
@@ -296,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1813342138844253465, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.3426466
+      value: 1.58
       objectReference: {fileID: 0}
     - target: {fileID: 1813342138844253465, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -333,22 +357,6 @@ PrefabInstance:
     - target: {fileID: 1813342138844253465, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849572794828173411, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849572794828173411, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849572794828173411, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849572795256764937, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
@@ -473,7 +481,7 @@ BoxCollider:
   m_GameObject: {fileID: 1658725807}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -538,7 +546,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.1, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1668224103 stripped
 MonoBehaviour:
@@ -561,14 +569,38 @@ PrefabInstance:
     - target: {fileID: 8709033686534827696, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: target
+      value: 
       objectReference: {fileID: 1668224103}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: attack_range
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: attack_speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827697, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: attack_damage
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827702, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: m_Name
       value: emeny
       objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827703, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8709033686534827703, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827709, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8709033686534827709, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
       propertyPath: m_LocalPosition.x
