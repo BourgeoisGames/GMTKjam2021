@@ -16,16 +16,29 @@ public class LightningController : MonoBehaviour
 	public void activate(Vector3 target) {
 		Debug.Log("Some call me Tim!");
 		if (_lighting_points.Count >= 2) {
-			foreach (LightningEndpoint ball in _lighting_points) {
-				ball.despawn();
-			}
-			_lighting_points = new List<LightningEndpoint>();
+			reset_balls();
 		}
-		else {
-			GameObject new_ball = Instantiate(prefab) as GameObject;
-			new_ball.transform.position = target;
-			_lighting_points.Add(getLightningBallComponent(new_ball));
+		spawn_ball(target);
+		if (_lighting_points.Count == 2) {
+			start_lightning_effect();
 		}
+	}
+	
+	private void start_lightning_effect() {
+		// TODO --- do something...
+	}
+	
+	private void reset_balls() {
+		foreach (LightningEndpoint ball in _lighting_points) {
+			ball.despawn();
+		}
+		_lighting_points = new List<LightningEndpoint>();
+	}
+	
+	private void spawn_ball(Vector3 target) {
+		GameObject new_ball = Instantiate(prefab) as GameObject;
+		new_ball.transform.position = target;
+		_lighting_points.Add(getLightningBallComponent(new_ball));
 	}
 	
 	private LightningEndpoint getLightningBallComponent(GameObject lightning_ball) {
