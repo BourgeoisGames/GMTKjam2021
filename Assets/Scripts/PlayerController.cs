@@ -7,11 +7,14 @@ public class PlayerController : MonoBehaviour
 	public LightningController lightning;
 	public Camera camera;
 	public PlayerHealth player_health;
+    public PlayerScore player_score;
 	public float move_speed = 1f;
 	public float camera_height = 1.8f;
 	public Rigidbody rigidbody;
 	public string primary_fire = "mouse 0";
 	public int lightning_range = 50;
+
+    public float score_per_second = 1.0f;
 	
 	public float max_camera_angle = 90f;
 	
@@ -51,6 +54,8 @@ public class PlayerController : MonoBehaviour
 	{
 		roated_camera();
 		activate_lightning();
+
+        player_score.add_score(score_per_second * Time.deltaTime);
     }
 	
 	private void activate_lightning() {
