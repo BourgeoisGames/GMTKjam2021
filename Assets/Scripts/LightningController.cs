@@ -9,6 +9,9 @@ public class LightningController : MonoBehaviour
 
 	public GameObject lightning_animation_prefab;
 
+    public AudioSource lightningSource;
+    public AudioClip placePylon, placeLightning;
+
 	private LightningAnimation _active_animation;
 
 	public float damage_over_time = 2;
@@ -51,7 +54,17 @@ public class LightningController : MonoBehaviour
 		if (_lighting_points.Count == 2) {
 			start_lightning_effect();
 		}
-	}
+
+        // Play the appropriate sound effect
+        if (_lightning_is_active)
+        {
+            lightningSource.PlayOneShot(placeLightning);
+        }
+        else
+        {
+            lightningSource.PlayOneShot(placePylon);
+        }
+    }
 	
 	private void remove_old_ball() {
 		/* removes and cleans up the oldest lightning ball in the list */
@@ -67,7 +80,10 @@ public class LightningController : MonoBehaviour
 	private void start_lightning_effect() {
 		_lightning_is_active = true;
 		handle_lightning_animation(_lighting_points[0].get_lightning_position(), _lighting_points[1].get_lightning_position());
-	}
+
+        // Perform an initial check to see if the lightning is valid
+        handle_active_lightning_pair(_lighting_points[0], _lighting_points[1]);
+    }
 
 	private void end_lightning_effect() {
 		_lightning_is_active = false;
@@ -101,10 +117,10 @@ public class LightningController : MonoBehaviour
 	
 	void handle_active_lightning_pair(LightningEndpoint lightning_point_a, LightningEndpoint lightning_point_b)
 	{
-		Vector3 point_a = lightning_point_a.endpoint_transform.position;
-		Vector3 point_b = lightning_point_b.endpoint_transform.position;
+		Vector3 point_a = lightning_point_a.get_lightning_position();
+        Vector3 point_b = lightning_point_b.get_lightning_position();
 
-		Vector3 direction = point_b - point_a;
+        Vector3 direction = point_b - point_a;
 		direction = direction.normalized;
 
 		float distance = Vector3.Distance(point_a, point_b);
