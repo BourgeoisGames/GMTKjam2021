@@ -173,7 +173,9 @@ public class LightningController : MonoBehaviour
 		if(has_invalid_lightning_hits(hit_list, point_a, point_b) || has_invalid_lightning_hits(hit_list_b_to_a, point_b, point_a)){
 			handle_invalid_lightning();
 		}
-		handle_lightning_damage_list(hit_list);
+
+        if (_lightning_is_active)
+            handle_lightning_damage_list(hit_list);
 	}
 
 	bool is_valid_lightning_distance(float distance)
