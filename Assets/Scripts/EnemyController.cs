@@ -28,6 +28,9 @@ public class EnemyController : MonoBehaviour
     public AudioSource oneShotSource;
     public AudioClip attackPlayerClip;
 
+    public AudioClip[] idleClips;
+    public float averageIdleClipTime;
+
     public Transform enemy_transform
     {
         get { return transform; }
@@ -60,6 +63,16 @@ public class EnemyController : MonoBehaviour
     {
         handle_attack();
         handle_attack_animation();
+        handle_random_idle_clips();
+    }
+
+    void handle_random_idle_clips()
+    {
+        if (Random.value < Time.deltaTime / averageIdleClipTime)
+        {
+            AudioClip clip = idleClips[Random.Range(0, idleClips.Length)];
+            oneShotSource.PlayOneShot(clip);
+        }
     }
 
     void handle_attack_animation()

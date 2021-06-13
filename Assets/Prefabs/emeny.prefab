@@ -782,6 +782,11 @@ MonoBehaviour:
   enemy_animation: {fileID: 1905377688}
   oneShotSource: {fileID: 8857250815592526517}
   attackPlayerClip: {fileID: 8300000, guid: 7e2ba138f1adfbc4a886aa66d5c6e8a6, type: 3}
+  idleClips:
+  - {fileID: 8300000, guid: ffe4c81fecb52414295260f430151f3a, type: 3}
+  - {fileID: 8300000, guid: 5bed41b042225354cbb539d736a6d42b, type: 3}
+  - {fileID: 8300000, guid: ab409ad8870ae2b4d8d6b29b4d6451e3, type: 3}
+  averageIdleClipTime: 8
 --- !u!114 &8709033686534827696
 MonoBehaviour:
   m_ObjectHideFlags: 0
