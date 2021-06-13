@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1813342138844253465}
   - component: {fileID: 4507394259816006450}
+  - component: {fileID: 8109908426215830161}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -45,6 +46,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 949c17b76ef92f846af34fc5ae5afc67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8109908426215830161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15205675526870524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102e39cd73f57b2428857b1ac4cef723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &806990598834786057
@@ -253,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779b4156324e67a43841aab0c1bf7b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartSceneIndex: 1
   deathSource: {fileID: 8691489170770396896}
   deathClip: {fileID: 8300000, guid: 1b877f56bfe0ebd4898d5686cf7c06cb, type: 3}
   gameOverScreen: {fileID: 4595191261331303952}
@@ -897,6 +911,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: b5ece508ee2d1014581e03003105d5d3, type: 3}
+    - target: {fileID: 4159236195350643251, guid: 6a86c104e5722044eadea7b9c1866fa3, type: 3}
+      propertyPath: m_Text
+      value: "- Use WASD to move\n- Left click to place your 2 Arc-Nodes\n- R to
+        recall them\n- Sometimes it takes a couple zaps \U0001F5F2\U0001F5F2"
+      objectReference: {fileID: 0}
     - target: {fileID: 7808244991001011506, guid: 6a86c104e5722044eadea7b9c1866fa3, type: 3}
       propertyPath: m_Color.b
       value: 0.12771448
