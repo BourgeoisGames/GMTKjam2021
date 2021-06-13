@@ -882,17 +882,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1668224106, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
-      propertyPath: restartTime
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 15205675526870524, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1667906547313532749, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
-      propertyPath: m_Range
-      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1813342138844253465, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_RootOrder
@@ -937,20 +929,6 @@ PrefabInstance:
     - target: {fileID: 1813342138844253465, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1849572794828173413, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
-      propertyPath: lightning_range
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4159236195162262571, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
-      propertyPath: m_Text
-      value: "- Use WASD to move\n- Left click to attach your 2 Arc-Nodes to nearby
-        walls\n- R to recall them\n- Sometimes it takes a couple zaps \U0001F5F2\U0001F5F2\n-
-        How long can you hold out?"
-      objectReference: {fileID: 0}
-    - target: {fileID: 7123735857507053068, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
-      propertyPath: auto_clear
-      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
