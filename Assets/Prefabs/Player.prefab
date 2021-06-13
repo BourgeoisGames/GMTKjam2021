@@ -216,7 +216,7 @@ MonoBehaviour:
   rigidbody: {fileID: 1849572794828173412}
   primary_fire: mouse 0
   reset_nodes: r
-  lightning_range: 4
+  lightning_range: 5
   score_per_second: 1
   max_camera_angle: 85
   mouse_sensitivity: 2
@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779b4156324e67a43841aab0c1bf7b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartSceneIndex: 1
   deathSource: {fileID: 8691489170770396896}
   deathClip: {fileID: 8300000, guid: 1b877f56bfe0ebd4898d5686cf7c06cb, type: 3}
   gameOverScreen: {fileID: 4595191261331303952}
