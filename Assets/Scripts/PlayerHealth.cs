@@ -6,6 +6,8 @@ public class PlayerHealth : MonoBehaviour
 {
     // Maximum health
     public float maximumHealth = 5.0f;
+    // Regeneration
+    public float regenPerSecond = 0.05f;
     // Game over script
     public GameOver gameOver;
     // Health UI
@@ -30,6 +32,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        currentHealth += regenPerSecond * Time.deltaTime;
+        currentHealth = Mathf.Min(currentHealth, maximumHealth);
         healthUI.set_health(currentHealth / maximumHealth);
     }
 }
