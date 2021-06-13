@@ -6,6 +6,7 @@ public class EnemyAnimation : MonoBehaviour {
 	
 	private Animator anim;
 	private int battle_state = 0;
+    public float animationSpeed = 2.0f;
 	public float speed = 6.0f;
 	public float runSpeed = 3.0f;
 	public float turnSpeed = 60.0f;
@@ -35,6 +36,7 @@ public class EnemyAnimation : MonoBehaviour {
 			anim.SetInteger ("moving", 3);
 		}
 
+        anim.speed = animationSpeed;
 	}
 
 	public void set_attacking(bool value){

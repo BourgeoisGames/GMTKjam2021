@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff453c224a748d439cedc9b54505b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSpeed: 3
   speed: 6
   runSpeed: 3
   turnSpeed: 60
@@ -824,6 +825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_health: 5
   kill_score: 100
+  health_variation_range: 0
   controller: {fileID: 8709033686534827697}
   scorekeeper: {fileID: 0}
   deathPrefab: {fileID: 209126815501484185, guid: 13d77d786597fca47bde72bf6532e27c, type: 3}
