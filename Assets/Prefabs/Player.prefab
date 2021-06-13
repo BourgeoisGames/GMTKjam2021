@@ -266,6 +266,7 @@ MonoBehaviour:
   lightningSource: {fileID: 8691489170770396896}
   placePylon: {fileID: 8300000, guid: af9c5325fa03aa74d85733c9b769344f, type: 3}
   placeLightning: {fileID: 8300000, guid: 1879f43fe8afd1f42999f337d48499ca, type: 3}
+  missplaceNode: {fileID: 8300000, guid: f405045da765129448cf51dcbf060f80, type: 3}
   damage_over_time: 30
   max_lightning_range: 10
 --- !u!136 &372200478398416962

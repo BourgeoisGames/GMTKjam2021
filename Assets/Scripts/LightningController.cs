@@ -10,7 +10,7 @@ public class LightningController : MonoBehaviour
 	public GameObject lightning_animation_prefab;
 
     public AudioSource lightningSource;
-    public AudioClip placePylon, placeLightning;
+    public AudioClip placePylon, placeLightning, missplaceNode;
 
 	private LightningAnimation _active_animation;
 
@@ -60,6 +60,9 @@ public class LightningController : MonoBehaviour
         {
             lightningSource.PlayOneShot(placeLightning);
         }
+		else if (_lighting_points.Count == 2) {
+            lightningSource.PlayOneShot(missplaceNode);
+		}
         else
         {
             lightningSource.PlayOneShot(placePylon);
@@ -114,6 +117,9 @@ public class LightningController : MonoBehaviour
 	public void reset_balls() {
 		foreach (LightningEndpoint ball in _lighting_points) {
 			ball.despawn();
+		}
+		if (_lighting_points.Count != 0) {
+            lightningSource.PlayOneShot(placePylon);
 		}
 		_lighting_points = new List<LightningEndpoint>();
 		end_lightning_effect();
