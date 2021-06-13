@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
+    // Scene index to load on restart
+    public int restartSceneIndex = 1;
+
     // Is the game over?
     public static bool isOver;
 
@@ -52,7 +55,7 @@ public class GameOver : MonoBehaviour
 
                 // Restart!
                 isOver = false;
-                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+                UnityEngine.SceneManagement.SceneManager.LoadScene(restartSceneIndex);
             }
         }
     }
