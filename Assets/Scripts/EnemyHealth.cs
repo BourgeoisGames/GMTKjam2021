@@ -9,16 +9,24 @@ public class EnemyHealth : MonoBehaviour
     public float kill_score;
 	private float health;
 
+    public float health_variation_range;
+
     public EnemyController controller;
 
     public PlayerScore scorekeeper;
 
     public GameObject deathPrefab;
 
+    //public Transform enemy_transform;
+
     // Start is called before the first frame update
     void Start()
     {
-        health = max_health;
+        float start_health = max_health + Random.value*2*health_variation_range - health_variation_range;
+        health = start_health;
+        Vector3 new_scale = transform.localScale;
+        new_scale.y = transform.localScale.y * (Mathf.Max(Mathf.Sqrt(start_health/max_health), 1.0f));
+        transform.localScale = new_scale;
     }
 
     // Update is called once per frame

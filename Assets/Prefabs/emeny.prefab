@@ -686,7 +686,7 @@ Transform:
   m_GameObject: {fileID: 8709033686534827702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.0358896, y: 0.99, z: 0.1699276}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_Children:
   - {fileID: 38420454}
   - {fileID: 9143771043462890235}
@@ -769,7 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 6
-  speed_variation_range: 1
+  speed_variation_range: 2
   body: {fileID: 8709033686534827703}
   pathfinding: {fileID: 8709033686534827696}
   attack_speed: 2

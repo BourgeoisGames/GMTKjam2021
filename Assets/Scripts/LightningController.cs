@@ -25,6 +25,8 @@ public class LightningController : MonoBehaviour
 	private string enemy_tag = "Enemy";
 	private string wall_tag = "Wall";
 
+	private float min_placement_distance = 0.2f;
+
 	private float raycast_ignore_distance = 0.01f;
 
 	private List<LightningEndpoint> _lighting_points;
@@ -45,6 +47,12 @@ public class LightningController : MonoBehaviour
 
 		if(target_hit.collider.gameObject.tag != wall_tag){
 			return; //we've got to hit a wall;
+		}
+
+		foreach(LightningEndpoint ball in _lighting_points){
+			if(Vector3.Distance(target_hit.point, ball.endpoint_transform.position) < min_placement_distance){
+				return;
+			}
 		}
 
 		Vector3 target = target_hit.point;
