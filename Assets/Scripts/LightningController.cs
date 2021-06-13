@@ -79,10 +79,27 @@ public class LightningController : MonoBehaviour
 	
 	private void start_lightning_effect() {
 		_lightning_is_active = true;
+
+		active_lightning_particles();
+
 		handle_lightning_animation(_lighting_points[0].get_lightning_position(), _lighting_points[1].get_lightning_position());
 
         // Perform an initial check to see if the lightning is valid
         handle_active_lightning_pair(_lighting_points[0], _lighting_points[1]);
+    }
+
+    void active_lightning_particles()
+    {
+    	foreach (LightningEndpoint ball in _lighting_points) {
+			ball.set_active(true);
+		}
+    }
+
+    void inactive_lightning_particles()
+    {
+    	foreach (LightningEndpoint ball in _lighting_points) {
+			ball.set_active(false);
+		}
     }
 
 	private void end_lightning_effect() {
@@ -90,6 +107,8 @@ public class LightningController : MonoBehaviour
 		if(_active_animation != null){
 			_active_animation.despawn();
 		}
+
+		inactive_lightning_particles();
 	}
 	
 	public void reset_balls() {
