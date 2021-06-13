@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LightningEndpoint : MonoBehaviour
 {
+
+	public GameObject spark_particles;
+
     // Apparent height of the lightning endpoint
     private float pylonHeight = 0.35f;
 
@@ -20,5 +23,10 @@ public class LightningEndpoint : MonoBehaviour
     {
         // Despawn the lightning ball, very simple for now
         Destroy(gameObject);
+    }
+
+    public void set_active(bool active)
+    {
+    	spark_particles.SetActive(!active);
     }
 }
