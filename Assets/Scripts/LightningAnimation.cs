@@ -5,6 +5,7 @@ using UnityEngine;
 public class LightningAnimation : MonoBehaviour
 {
     public LightningMeshGeneration[] meshes;
+    public Light arcLight;
 
     public void set_points(Vector3 start, Vector3 end)
     {
@@ -12,6 +13,8 @@ public class LightningAnimation : MonoBehaviour
         {
             meshes[i].set_points(start, end);
         }
+
+        arcLight.transform.position = (start + end) / 2.0f;
     }
 
     public void despawn()
