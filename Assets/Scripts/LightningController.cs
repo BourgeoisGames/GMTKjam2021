@@ -38,6 +38,9 @@ public class LightningController : MonoBehaviour
 	}
 
 	void Update() {
+        if (GameOver.isOver)
+            return;
+
 		if(_lightning_is_active){
 			handle_active_lightning_pair(_lighting_points[0], _lighting_points[1]);
 		}

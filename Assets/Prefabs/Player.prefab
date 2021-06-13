@@ -252,6 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779b4156324e67a43841aab0c1bf7b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSource: {fileID: 8691489170770396896}
+  deathClip: {fileID: 8300000, guid: 1b877f56bfe0ebd4898d5686cf7c06cb, type: 3}
   gameOverScreen: {fileID: 4595191261331303952}
   gameOverTimerText: {fileID: 2394571206301871295}
   restartTime: 7

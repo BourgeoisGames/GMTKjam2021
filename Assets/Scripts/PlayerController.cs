@@ -70,9 +70,13 @@ public class PlayerController : MonoBehaviour
         player_score.add_score(score_per_second * Time.deltaTime);
     }
 	
-	private void activate_lightning() {
-		/** check if player is inputting to activate, and activate it if needed.*/
-		if (Input.GetKeyDown(primary_fire)) {
+	private void activate_lightning()
+    {
+        if (GameOver.isOver)
+            return;
+
+        /** check if player is inputting to activate, and activate it if needed.*/
+        if (Input.GetKeyDown(primary_fire)) {
 			get_point_looked_at();
 		}
 		

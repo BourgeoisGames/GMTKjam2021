@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
+    // Is the game over?
+    public static bool isOver;
+
+    // Audio source and clip for death sound
+    public AudioSource deathSource;
+    public AudioClip deathClip;
+
     // Screen to display on the UI
     public GameObject gameOverScreen;
     // Text to update with time remaining
@@ -23,6 +30,7 @@ public class GameOver : MonoBehaviour
         restartTimer = 0.0f;
 
         // Just to be sure ...
+        isOver = false;
         Time.timeScale = 1.0f;
     }
 
@@ -43,6 +51,7 @@ public class GameOver : MonoBehaviour
                 Time.timeScale = 1.0f;
 
                 // Restart!
+                isOver = false;
                 UnityEngine.SceneManagement.SceneManager.LoadScene(0);
             }
         }
@@ -50,6 +59,18 @@ public class GameOver : MonoBehaviour
 
     public void game_over()
     {
+        if (isRestarting)
+            return;
+
+        isOver = true;
+
+        foreach (AudioSource source in FindObjectsOfType<AudioSource>())
+        {
+            source.Stop();
+        }
+
+        deathSource.PlayOneShot(deathClip);
+
         isRestarting = true;
         Time.timeScale = 0.0f;
         gameOverScreen.SetActive(true);
