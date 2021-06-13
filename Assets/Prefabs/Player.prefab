@@ -220,6 +220,11 @@ MonoBehaviour:
   score_per_second: 1
   max_camera_angle: 85
   mouse_sensitivity: 2
+  footstepSource: {fileID: 8691489170770396896}
+  footstepClips:
+  - {fileID: 8300000, guid: 62f58ebb460998044bb846678d75c1ec, type: 3}
+  - {fileID: 8300000, guid: 2e5a901b658331449ae9860dd72ba0cc, type: 3}
+  footstepInterval: 0.3
 --- !u!114 &1668224105
 MonoBehaviour:
   m_ObjectHideFlags: 0
