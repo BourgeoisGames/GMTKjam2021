@@ -26,8 +26,15 @@ public class PlayerController : MonoBehaviour
 	private bool invert_y_axis = true;
 
     private Vector3 mouseEuler;
-	
-	private static PlayerController _instance;
+    
+    public AudioSource footstepSource;
+    public AudioClip[] footstepClips;
+    public float footstepInterval = 0.65f;
+
+    private float timeMoving;
+    private int footstepIndex;
+
+    private static PlayerController _instance;
 	public static PlayerController instance {
 		get { return _instance; }
 	}
@@ -47,6 +54,9 @@ public class PlayerController : MonoBehaviour
         update_camera_position();
         //		camera.transform.rotation = transform.rotation;
         Cursor.lockState = CursorLockMode.Locked;
+
+        timeMoving = 0.0f;
+        footstepIndex = 0;
     }
 	
 
@@ -125,8 +135,24 @@ public class PlayerController : MonoBehaviour
         if (move.magnitude > move_speed)
             move *= move_speed / move.magnitude;
 
+        if (move.magnitude > 0.5f)
+        {
+            // We're moving, update the sound
+            timeMoving -= Time.deltaTime;
+            if (timeMoving < 0.0f)
+            {
+                timeMoving += footstepInterval;
+                footstepSource.PlayOneShot(footstepClips[footstepIndex], move.magnitude / move_speed / 2.0f);
+                footstepIndex++;
+                if (footstepIndex >= footstepClips.Length)
+                    footstepIndex = 0;
+            }
+        }
+        else
+            timeMoving = 0.0f;
+
         //Vector3 move = new Vector3(move_forward, 0, move_right);
-		
-		rigidbody.velocity = move;
+
+        rigidbody.velocity = move;
     }
 }
