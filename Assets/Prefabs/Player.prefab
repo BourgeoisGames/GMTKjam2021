@@ -216,7 +216,7 @@ MonoBehaviour:
   rigidbody: {fileID: 1849572794828173412}
   primary_fire: mouse 0
   reset_nodes: r
-  lightning_range: 3
+  lightning_range: 4
   score_per_second: 1
   max_camera_angle: 85
   mouse_sensitivity: 2
