@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LaunchScene.unity
     guid: 81f1c138bcb98ee42807129a82ada7a4
   - enabled: 1
-    path: Assets/Scenes/SecondBuildSceneJARED.unity
-    guid: ddf780cdd350d3e48b735f7029a5877a
+    path: Assets/Scenes/FinalBuildScene.unity
+    guid: 48f950b2e33cc66488d3ecc6774cd095
   m_configObjects: {}
