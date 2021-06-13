@@ -133,7 +133,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   scorekeeper: {fileID: 0}
   firstSpawnTime: -10
-  enemySpawnTime: 4
+  enemySpawnTime: 1
   enemyPrefab: {fileID: 8709033686534827702, guid: b48bf43205cbd8241a1c3e6542a278ed, type: 3}
   enemiesPerWave: 3
 --- !u!1001 &61191567

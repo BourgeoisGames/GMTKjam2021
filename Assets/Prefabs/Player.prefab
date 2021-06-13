@@ -267,8 +267,8 @@ MonoBehaviour:
   lightningSource: {fileID: 8691489170770396896}
   placePylon: {fileID: 8300000, guid: af9c5325fa03aa74d85733c9b769344f, type: 3}
   placeLightning: {fileID: 8300000, guid: 1879f43fe8afd1f42999f337d48499ca, type: 3}
-  zapSource: {fileID: 8546194706624861465}
   missplaceNode: {fileID: 8300000, guid: f405045da765129448cf51dcbf060f80, type: 3}
+  zapSource: {fileID: 8546194706624861465}
   damage_over_time: 30
   max_lightning_range: 10
 --- !u!136 &372200478398416962
@@ -388,7 +388,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849572795256764938}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: eb4d71a47d5164445b8983242283dcac, type: 2}
   m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
