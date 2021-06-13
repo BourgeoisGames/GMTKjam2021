@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_health: 5
-  kill_score: 100
+  kill_score: 10
   health_variation_range: 0
   controller: {fileID: 8709033686534827697}
   scorekeeper: {fileID: 0}
