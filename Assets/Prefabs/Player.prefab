@@ -229,7 +229,7 @@ MonoBehaviour:
   rigidbody: {fileID: 1849572794828173412}
   primary_fire: mouse 0
   reset_nodes: r
-  lightning_range: 4
+  lightning_range: 5
   score_per_second: 1
   max_camera_angle: 85
   mouse_sensitivity: 2
@@ -271,7 +271,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: 1b877f56bfe0ebd4898d5686cf7c06cb, type: 3}
   gameOverScreen: {fileID: 4595191261331303952}
   gameOverTimerText: {fileID: 2394571206301871295}
-  restartTime: 7
+  restartTime: 5
 --- !u!114 &9001035542861683553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,7 +672,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 20
+  m_Range: 60
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -913,8 +913,13 @@ PrefabInstance:
       objectReference: {fileID: 12800000, guid: b5ece508ee2d1014581e03003105d5d3, type: 3}
     - target: {fileID: 4159236195350643251, guid: 6a86c104e5722044eadea7b9c1866fa3, type: 3}
       propertyPath: m_Text
-      value: "- Use WASD to move\n- Left click to place your 2 Arc-Nodes\n- R to
-        recall them\n- Sometimes it takes a couple zaps \U0001F5F2\U0001F5F2"
+      value: "- Use WASD to move\n- Left click to attach your 2 Arc-Nodes to nearby
+        walls\n- R to recall them\n- Sometimes it takes a couple zaps \U0001F5F2\U0001F5F2\n-
+        How long can you hold out?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123735857720270868, guid: 6a86c104e5722044eadea7b9c1866fa3, type: 3}
+      propertyPath: auto_clear
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7808244991001011506, guid: 6a86c104e5722044eadea7b9c1866fa3, type: 3}
       propertyPath: m_Color.b

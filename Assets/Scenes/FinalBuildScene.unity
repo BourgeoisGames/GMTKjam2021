@@ -882,6 +882,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1668224106, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
+      propertyPath: restartTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 15205675526870524, guid: 0ad57e6776da6b84a9c58c671036767d, type: 3}
       propertyPath: m_Name
       value: Player
